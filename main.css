@@ -1,0 +1,200 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	z-index: 2;
+	justify-content: center;
+	align-items: center;
+	background: #3c3c3d;
+}
+
+.hover{
+	opacity: 0;
+	width: 100px;
+    height: 500px;
+    animation: show 2s ease forwards 3.6s;
+}
+
+li{
+	list-style: none;
+}
+
+.list{
+	width: 100px;
+    height: 500px;
+    position: absolute;
+    transform-origin: bottom;
+    transition: 0.5s;
+}
+
+.right{
+    clip-path: polygon(0 0, 100% 20%, 0% 100%, 0 0);
+	transform: translate(50%, 0);
+}
+
+.left{
+	clip-path: polygon(100% 0, 0 20%, 100% 100%, 100% 0);
+    transform: translate(-50%, 0);	
+}
+
+.right:hover{
+	clip-path: polygon(0 0, 100% 25%, 0 100%, 0 0);
+}
+
+.left:hover{
+	clip-path: polygon(100% 0, 0 25%, 100% 100%, 100% 0);
+}
+
+.hover:hover .box1{
+	transform: rotate(0deg) translate(50%, 0);
+}
+.hover:hover .box2{
+	transform: rotate(13deg) translate(50%, 0);
+}
+.hover:hover .box3{
+	transform: rotate(26deg) translate(50%, 0);
+}
+.hover:hover .box4{
+	transform: rotate(39deg) translate(50%, 0);
+}
+.hover:hover .box5{
+	transform: rotate(0deg) translate(-50%, 0);
+}
+.hover:hover .box6{
+	transform: rotate(-13deg) translate(-50%, 0);
+}
+.hover:hover .box7{
+	transform: rotate(-26deg) translate(-50%, 0);
+}
+.hover:hover .box8{
+	transform: rotate(-39deg) translate(-50%, 0);
+}
+
+.main_anime{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: 3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	animation: hide 0.5s ease forwards 3.5s;
+}
+
+#outline_text path:nth-child(1){
+	stroke-dasharray: 281;
+	stroke-dashoffset: 281;
+	animation: line_anime 2s ease forwards;
+}
+#outline_text path:nth-child(2){
+	stroke-dasharray: 352;
+	stroke-dashoffset: 352;
+	animation: line_anime 2s ease forwards 0.2s;
+}
+#outline_text path:nth-child(3){
+	stroke-dasharray: 311;
+	stroke-dashoffset: 311;
+	animation: line_anime 2s ease forwards 0.4s;
+}
+#outline_text path:nth-child(4){
+	stroke-dasharray: 311;
+	stroke-dashoffset: 311;
+	animation: line_anime 2s ease forwards 0.6s;
+}
+#outline_text path:nth-child(5){
+	stroke-dasharray: 395;
+	stroke-dashoffset: 395;
+	animation: line_anime 2s ease forwards 0.8s;
+}
+#outline_text path:nth-child(6){
+	stroke-dasharray: 307;
+	stroke-dashoffset: 307;
+	animation: line_anime 2s ease forwards 1s;
+}
+#outline_text path:nth-child(7){
+	stroke-dasharray: 214;
+	stroke-dashoffset: 214;
+	animation: line_anime 2s ease forwards 1.2s;
+}
+#outline_text path:nth-child(8){
+	stroke-dasharray: 307;
+	stroke-dashoffset: 307;
+	animation: line_anime 2s ease forwards 1.4s;
+}
+#outline_text path:nth-child(9){
+	stroke-dasharray: 206;
+	stroke-dashoffset: 206;
+	animation: line_anime 2s ease forwards 1.6s;
+}
+#outline_text path:nth-child(10){
+	stroke-dasharray: 338;
+	stroke-dashoffset: 338;
+	animation: line_anime 2s ease forwards 1.8s;
+}
+
+@keyframes line_anime{
+	to{
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes hide{
+	0%{
+		opacity: 1;
+		z-index: 3;
+	}
+	99%{
+		opacity: 0;
+		z-index: 3;
+	}
+	100%{
+		opacity: 0;
+		z-index: 1;
+	}
+}
+
+@keyframes show{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	.hover{
+		width: 75px;
+	    height: 375px;
+	}
+
+	.list{
+		width: 75px;
+	    height: 375px;
+	    position: absolute;
+	    transform-origin: bottom;
+	    transition: 0.5s;
+	}
+}
+
+@media only screen and (max-width: 500px){
+	.hover{
+		width: 50px;
+	    height: 250px;
+	}
+
+	.list{
+		width: 50px;
+	    height: 250px;
+	    position: absolute;
+	    transform-origin: bottom;
+	    transition: 0.5s;
+	}
+}
