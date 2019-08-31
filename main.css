@@ -85,6 +85,7 @@ li{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 0 50px;
 	animation: hide 0.5s ease forwards 3.5s;
 }
 
