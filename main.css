@@ -1,7 +1,27 @@
+:root {
+    --primary-color: #302AE6;
+    --secondary-color: #536390;
+    --font-color: #424242;
+    --bg-color: #e1e5e6;
+    --heading-color: #3c3c3d;
+}
+
+[data-theme="dark"] {
+    --primary-color: #9A97F3;
+    --secondary-color: #818cab;
+    --font-color: #e1e1ff;
+    --bg-color: #3c3c3d;
+    --heading-color: #e1e5e6;
+}
+
 *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+body{
+	background: var(--bg-color);
 }
 
 .container{
@@ -9,21 +29,35 @@
 	width: 100%;
 	height: 100vh;
 	display: flex;
-	z-index: 2;
+	/*z-index: 2;*/
 	justify-content: center;
 	align-items: center;
-	background: #3c3c3d;
+	background: rgba(0, 0, 0, 0);
+	transition: 0.3s;
 }
 
-.hover{
-	opacity: 0;
+.darkMode{
+	position: absolute;
+	top: 5%;
+	left: 7%;
+	z-index: 3;
+}
+
+/*.hover{
+	opacity: 1;
 	width: 100px;
     height: 500px;
     animation: show 2s ease forwards 3.6s;
-}
+}*/
 
-li{
+/*li{
 	list-style: none;
+}*/
+
+.list_cont{
+	opacity: 0;
+	width: 100px;
+    height: 500px;
 }
 
 .list{
@@ -31,7 +65,24 @@ li{
     height: 500px;
     position: absolute;
     transform-origin: bottom;
+    list-style: none;
     transition: 0.5s;
+}
+
+.main_anime{
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 50px;
+	/*animation: hide 0.5s ease forwards 3.5s;*/
+}
+
+#outline_text path{
+	stroke: var(--heading-color);
 }
 
 .right{
@@ -45,102 +96,91 @@ li{
 }
 
 .right:hover{
-	clip-path: polygon(0 0, 100% 25%, 0 100%, 0 0);
+	clip-path: polygon(0 0, 100% 27%, 0 100%, 0 0);
 }
 
 .left:hover{
-	clip-path: polygon(100% 0, 0 25%, 100% 100%, 100% 0);
+	clip-path: polygon(100% 0, 0 27%, 100% 100%, 100% 0);
 }
 
-.hover:hover .box1{
+.list_cont:hover .box1{
 	transform: rotate(0deg) translate(50%, 0);
 }
-.hover:hover .box2{
+.list_cont:hover .box2{
 	transform: rotate(13deg) translate(50%, 0);
 }
-.hover:hover .box3{
+.list_cont:hover .box3{
 	transform: rotate(26deg) translate(50%, 0);
 }
-.hover:hover .box4{
+.list_cont:hover .box4{
 	transform: rotate(39deg) translate(50%, 0);
 }
-.hover:hover .box5{
+.list_cont:hover .box5{
 	transform: rotate(0deg) translate(-50%, 0);
 }
-.hover:hover .box6{
+.list_cont:hover .box6{
 	transform: rotate(-13deg) translate(-50%, 0);
 }
-.hover:hover .box7{
+.list_cont:hover .box7{
 	transform: rotate(-26deg) translate(-50%, 0);
 }
-.hover:hover .box8{
+.list_cont:hover .box8{
 	transform: rotate(-39deg) translate(-50%, 0);
 }
 
-.main_anime{
-	position: absolute;
-	width: 100%;
-	height: 100vh;
-	z-index: 3;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0 50px;
-	animation: hide 0.5s ease forwards 3.5s;
-}
 
-#outline_text path:nth-child(1){
+/*#outline_text path:nth-child(1){
 	stroke-dasharray: 281;
 	stroke-dashoffset: 281;
-	animation: line_anime 2s ease forwards;
+	animation: line_anime 1.3s ease forwards;
 }
 #outline_text path:nth-child(2){
 	stroke-dasharray: 352;
 	stroke-dashoffset: 352;
-	animation: line_anime 2s ease forwards 0.2s;
+	animation: line_anime 1.3s ease forwards 0.2s;
 }
 #outline_text path:nth-child(3){
 	stroke-dasharray: 311;
 	stroke-dashoffset: 311;
-	animation: line_anime 2s ease forwards 0.4s;
+	animation: line_anime 1.3s ease forwards 0.4s;
 }
 #outline_text path:nth-child(4){
 	stroke-dasharray: 311;
 	stroke-dashoffset: 311;
-	animation: line_anime 2s ease forwards 0.6s;
+	animation: line_anime 1.3s ease forwards 0.6s;
 }
 #outline_text path:nth-child(5){
 	stroke-dasharray: 395;
 	stroke-dashoffset: 395;
-	animation: line_anime 2s ease forwards 0.8s;
+	animation: line_anime 1.3s ease forwards 0.8s;
 }
 #outline_text path:nth-child(6){
 	stroke-dasharray: 307;
 	stroke-dashoffset: 307;
-	animation: line_anime 2s ease forwards 1s;
+	animation: line_anime 1.3s ease forwards 1.0s;
 }
 #outline_text path:nth-child(7){
 	stroke-dasharray: 214;
 	stroke-dashoffset: 214;
-	animation: line_anime 2s ease forwards 1.2s;
+	animation: line_anime 1.3s ease forwards 1.2s;
 }
 #outline_text path:nth-child(8){
 	stroke-dasharray: 307;
 	stroke-dashoffset: 307;
-	animation: line_anime 2s ease forwards 1.4s;
+	animation: line_anime 1.3s ease forwards 1.4s;
 }
 #outline_text path:nth-child(9){
 	stroke-dasharray: 206;
 	stroke-dashoffset: 206;
-	animation: line_anime 2s ease forwards 1.6s;
+	animation: line_anime 1.3s ease forwards 1.6s;
 }
 #outline_text path:nth-child(10){
 	stroke-dasharray: 338;
 	stroke-dashoffset: 338;
-	animation: line_anime 2s ease forwards 1.8s;
-}
+	animation: line_anime 1.3s ease forwards 1.8s;
+}*/
 
-@keyframes line_anime{
+/*@keyframes line_anime{
 	to{
 		stroke-dashoffset: 0;
 	}
@@ -168,10 +208,10 @@ li{
 	100%{
 		opacity: 1;
 	}
-}
+}*/
 
 @media only screen and (max-width: 768px){
-	.hover{
+	.list_cont{
 		width: 75px;
 	    height: 375px;
 	}
