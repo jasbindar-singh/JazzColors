@@ -16,29 +16,31 @@ darkMode.addEventListener('click', () => {
 	darkline
 	.add({
 		targets: '#logo path',
-		d: [{ value: toggle ? light : dark }]
+		d: [{ value: toggle ? light : dark }],
+		fill: toggle ? '#FFB800' : '#FFFFFF'
 	})
 	.add({
 		targets: '#logo',
-		rotate: toggle ? 0 : 320
+		rotate: toggle ? 0 : 320,
 	})
-	.add({
-		targets: '#logo path',
-		fill: toggle ? '#FFB800' : '#FFFFFF'
-	})
+	// .add({
+	// 	targets: '#logo path',
+	// 	fill: toggle ? '#FFB800' : '#FFFFFF'
+	// })
+	// .add({
+	// 	targets: '#logo',
+	// 	rotate: toggle ? 0 : 320,
+	// 	scale: 1
+	// })
 	toggle = !toggle
 	switchTheme(toggle)
 })
 
 const switchTheme = data => {
-    if (data) {
+    if (data) 
         document.documentElement.setAttribute('data-theme', 'dark');
-        // localStorage.setItem('theme', 'dark');
-    }
-    else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        // localStorage.setItem('theme', 'light');
-    }    
+    else
+        document.documentElement.setAttribute('data-theme', 'light');   
 }
 
 anime({
