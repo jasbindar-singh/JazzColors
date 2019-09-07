@@ -43,6 +43,31 @@ body{
 	top: 5%;
 	left: 7%;
 	z-index: 3;
+	cursor: pointer;
+}
+
+.generate{
+	position: absolute;
+	top: 85%;
+	right: 0%;
+}
+
+.buttonColor{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	letter-spacing: 1.5px;
+	width: 150px;
+	height: 50px;
+	/*border-radius: 25px;*/
+	background-color: #91d370;
+	color: #ffffff/*var(--font-color)*/;
+	cursor: pointer;
+	background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+	background-size: 1000% 1000%;
+	animation: rainbow 10s linear infinite;
 }
 
 /*.hover{
@@ -69,9 +94,27 @@ body{
 	width: 100px;
     height: 500px;
     position: absolute;
+    font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	letter-spacing: 1.5px;
     transform-origin: bottom;
     list-style: none;
     transition: 0.5s;
+    cursor: pointer;
+}
+
+.list .right_text{
+	position: absolute;
+	left: 4%;
+	top: 35%;
+	transform: rotate(90deg);
+}
+
+.list .left_text{
+	position: absolute;
+	right: 4%;
+	top: 35%;
+	transform: rotate(90deg);
 }
 
 .main_anime{
@@ -133,7 +176,107 @@ body{
 	transform: rotate(-39deg) translate(-50%, 0);
 }
 
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
 
+@media only screen and (max-width: 768px){
+	.list_cont{
+		width: 75px;
+	    height: 375px;
+	}
+
+	.list{
+		width: 75px;
+	    height: 375px;
+	    position: absolute;
+	    font-family: 'Roboto', sans-serif;
+		font-weight: bold;
+		letter-spacing: 1.5px;
+	    transform-origin: bottom;
+	    list-style: none;
+	    transition: 0.5s;
+	    cursor: pointer;
+	}
+
+	.list .right_text{
+		position: absolute;
+		left: -10%;
+		top: 31%;
+		transform: rotate(90deg);
+	}
+
+	.list .left_text{
+		position: absolute;
+		right: -10%;
+		top: 31%;
+		transform: rotate(90deg);
+	}
+}
+
+@media only screen and (max-width: 500px){
+	.list_count{
+		width: 40px;
+	    height: 200px;
+	}
+
+	.list{
+		width: 40px;
+	    height: 200px;
+	    position: absolute;
+	    font-family: 'Roboto', sans-serif;
+		font-weight: bold;
+		letter-spacing: 1px;
+		font-size: 12px;
+	    transform-origin: bottom;
+	    list-style: none;
+	    transition: 0.5s;
+	    cursor: pointer;
+	}
+
+	.list .right_text{
+		position: absolute;
+		left: -25%;
+		top: 28%;
+		transform: rotate(90deg);
+	}
+
+	.list .left_text{
+		position: absolute;
+		right: -25%;
+		top: 28%;
+		transform: rotate(90deg);
+	}
+
+	.darkMode svg{
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		top: 5%;
+		left: 7%;
+		z-index: 3;
+	}
+
+	.buttonColor{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: 'Roboto', sans-serif;
+		font-weight: bold;
+		letter-spacing: 1.1px;
+		width: 125px;
+		height: 40px;
+		/*border-radius: 25px;*/
+		background-color: #91d370;
+		color: var(--font-color);
+		cursor: pointer;
+		background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+		background-size: 1000% 1000%;
+		animation: rainbow 10s linear infinite;
+	}
+}
 /*#outline_text path:nth-child(1){
 	stroke-dasharray: 281;
 	stroke-dashoffset: 281;
@@ -214,42 +357,3 @@ body{
 		opacity: 1;
 	}
 }*/
-
-@media only screen and (max-width: 768px){
-	.list_cont{
-		width: 75px;
-	    height: 375px;
-	}
-
-	.list{
-		width: 75px;
-	    height: 375px;
-	    position: absolute;
-	    transform-origin: bottom;
-	    transition: 0.5s;
-	}
-}
-
-@media only screen and (max-width: 500px){
-	.list_count{
-		width: 40px;
-	    height: 200px;
-	}
-
-	.list{
-		width: 40px;
-	    height: 200px;
-	    position: absolute;
-	    transform-origin: bottom;
-	    transition: 0.5s;
-	}
-
-	.darkMode svg{
-		width: 40px;
-		height: 40px;
-		position: absolute;
-		top: 5%;
-		left: 7%;
-		z-index: 3;
-	}
-}

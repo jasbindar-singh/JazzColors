@@ -3,9 +3,11 @@ let container = document.querySelector('.container');
 let list_cont = document.querySelector('.list_cont');
 let main_anime = document.querySelector('.main_anime');
 let darkMode = document.querySelector('.darkMode');
+let buttonColor = document.querySelector('.buttonColor');
+let text = document.querySelectorAll('.list .text')
 let light = "M65 32.5C65 50.4493 50.4493 65 32.5 65C14.5507 65 0 50.4493 0 32.5C0 14.5507 14.5507 0 32.5 0C50.4493 0 65 14.5507 65 32.5Z";
 let dark = "M18.5 32.5C18.5 50.4493 32.5 65 32.5 65C14.5507 65 0 50.4493 0 32.5C0 14.5507 14.5507 0 32.5 0C32.5 0 18.5 14.5507 18.5 32.5Z";
-let toggle = false
+let toggle = ''
 
 darkMode.addEventListener('click', () => {
 	const darkline = anime.timeline({
@@ -37,10 +39,10 @@ darkMode.addEventListener('click', () => {
 })
 
 const switchTheme = data => {
-    if (data) 
+    if (data)
         document.documentElement.setAttribute('data-theme', 'dark');
     else
-        document.documentElement.setAttribute('data-theme', 'light');   
+        document.documentElement.setAttribute('data-theme', 'light');
 }
 
 anime({
@@ -69,19 +71,35 @@ add({
 })
 
 const randomColor = () => {
-	return `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`
+	return `#${randomNumber()}${randomNumber()}${randomNumber()}`
 }
 
 const randomNumber = () => {
-	return Math.floor( Math.random() * 255 ) + 1;
+	return rgbToHex(Math.floor( Math.random() * 255 ) + 1);
 }
 
-for(let i=0; i< list.length; i++){
-	list[i].style.background = randomColor()
+const fillColor = () => {
+	for(let i=0; i< list.length; i++){
+		let color = randomColor()
+		list[i].style.background = color
+		text[i].innerHTML = color
+	}
 }
+
+let rgbToHex = rgb => { 
+  let hex = Number(rgb).toString(16);
+  if (hex.length < 2) {
+       hex = "0" + hex;
+  }
+  return hex;
+};
 
 for(let i=0; i< list.length; i++){
 	list[i].addEventListener('click', () => {
 		container.style.background = `linear-gradient(45deg, ${list[i].style.background} 10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, ${list[i].style.background} 90%)`
 	})
 }
+
+buttonColor.addEventListener('click', fillColor)
+
+fillColor()
