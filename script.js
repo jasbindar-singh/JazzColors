@@ -66,7 +66,7 @@ add({
 	complete: () => main_anime.remove()
 })
 .add({
-	targets: '.list_cont',
+	targets: '.list_cont, .generate',
 	opacity: 1
 })
 
@@ -86,7 +86,7 @@ const fillColor = () => {
 	}
 }
 
-let rgbToHex = rgb => { 
+const rgbToHex = rgb => { 
   let hex = Number(rgb).toString(16);
   if (hex.length < 2) {
        hex = "0" + hex;
@@ -97,9 +97,62 @@ let rgbToHex = rgb => {
 for(let i=0; i< list.length; i++){
 	list[i].addEventListener('click', () => {
 		container.style.background = `linear-gradient(45deg, ${list[i].style.background} 10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, ${list[i].style.background} 90%)`
+		
+		let aux = document.createElement("input");
+
+		// Get the text from the element passed into the input
+		aux.setAttribute("value", (list[i].innerText || list[i].textContent));
+
+		// Append the aux input to the body
+		document.body.appendChild(aux);
+
+		// Highlight the content
+		aux.select();
+
+		// Execute the copy command
+		document.execCommand("copy");
+
+		// Remove the input from the body
+		document.body.removeChild(aux);
+
+		let timeline = anime.timeline({
+			duration: 800,
+			easing: 'easeOutExpo'
+		})
+		timeline
+		.add({
+			targets: '.snackbar',
+			opacity: 1
+		})
+		.add({
+			targets: '.snackbar',
+			opacity: 0
+		})
 	})
 }
 
 buttonColor.addEventListener('click', fillColor)
 
 fillColor()
+
+const copyToClipboard = elementId => {
+
+  // Create an auxiliary hidden input
+  var aux = document.createElement("input");
+
+  // Get the text from the element passed into the input
+  aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+
+  // Append the aux input to the body
+  document.body.appendChild(aux);
+
+  // Highlight the content
+  aux.select();
+
+  // Execute the copy command
+  document.execCommand("copy");
+
+  // Remove the input from the body
+  document.body.removeChild(aux);
+
+}

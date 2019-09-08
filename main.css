@@ -47,6 +47,7 @@ body{
 }
 
 .generate{
+	opacity: 0;
 	position: absolute;
 	top: 85%;
 	right: 0%;
@@ -67,8 +68,22 @@ body{
 	cursor: pointer;
 	background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
 	background-size: 1000% 1000%;
+	/*background-repeat: repeat-x;*/
 	animation: rainbow 10s linear infinite;
 }
+
+/*.copied{
+	opacity: 0;
+	position: absolute;
+	display: flex;
+	font-size: 100px;
+	font-weight: bolder;
+	font-family: 'Roboto', sans-serif;
+	color: var(--font-color);
+	justify-content: center;
+	align-items: center;
+	z-index: -1;
+}*/
 
 /*.hover{
 	opacity: 1;
@@ -116,6 +131,33 @@ body{
 	top: 35%;
 	transform: rotate(90deg);
 }
+
+.snackbar{
+	position: absolute;
+	opacity: 0;
+	top: 90%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 200px;
+	height: 40px;
+	background: var(--font-color);
+	color: var(--bg-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: 1.5px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/*.text{
+	opacity: 0;
+	transition: 0.1s;
+}
+
+.list:hover .text{
+	opacity: 1;
+}*/
 
 .main_anime{
 	position: absolute;
