@@ -1,4 +1,4 @@
-let list = document.querySelectorAll('.list');
+let liList = document.querySelectorAll('.list');
 let container = document.querySelector('.container');
 let list_cont = document.querySelector('.list_cont');
 let main_anime = document.querySelector('.main_anime');
@@ -79,9 +79,9 @@ const randomNumber = () => {
 }
 
 const fillColor = () => {
-	for(let i=0; i< list.length; i++){
+	for(let i=0; i< liList.length; i++){
 		let color = randomColor()
-		list[i].style.background = color
+		liList[i].style.background = color
 		text[i].innerHTML = color
 	}
 }
@@ -94,14 +94,14 @@ const rgbToHex = rgb => {
   return hex;
 };
 
-for(let i=0; i< list.length; i++){
-	list[i].addEventListener('click', () => {
-		container.style.background = `linear-gradient(45deg, ${list[i].style.background} 10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, ${list[i].style.background} 90%)`
+for(let i=0; i< liList.length; i++){
+	liList[i].addEventListener('click', () => {
+		container.style.background = `linear-gradient(45deg, ${liList[i].style.background} 10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, ${liList[i].style.background} 90%)`
 		
 		let aux = document.createElement("input");
 
 		// Get the text from the element passed into the input
-		aux.setAttribute("value", (list[i].innerText || list[i].textContent));
+		aux.setAttribute("value", (liList[i].innerText || liList[i].textContent));
 
 		// Append the aux input to the body
 		document.body.appendChild(aux);
